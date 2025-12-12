@@ -7,9 +7,9 @@ const successStories = [
     name: 'Kafe Kita',
     business: 'Cafe in Shah Alam',
     image: '☕',
-    beforeViews: '150',
+    beforeViews: '1.2K',
     afterViews: '12.5K',
-    increase: '8233%',
+    increase: '940%',
     timeframe: '2 weeks',
     testimonial: 'Dulu posting gambar je, takde orang tengok. Pakai app ni buat video pouring kopi - viral terus! Queue panjang sampai luar kedai now.',
     metric: 'Sales increased 3x',
@@ -20,9 +20,9 @@ const successStories = [
     name: 'Aunty Lily Cleaning Services',
     business: 'House Cleaning in KL',
     image: '🧹',
-    beforeViews: '80',
+    beforeViews: '2.5K',
     afterViews: '24.8K',
-    increase: '31000%',
+    increase: '890%',
     timeframe: '1 week',
     testimonial: 'I just follow the Before-After template. Show dirty kitchen, then show clean. Customers now booking 2 weeks in advance!',
     metric: 'Bookings up 250%',
@@ -33,9 +33,9 @@ const successStories = [
     name: 'Sambal Sedap',
     business: 'Homemade Sambal in Penang',
     image: '🌶️',
-    beforeViews: '200',
+    beforeViews: '3.5K',
     afterViews: '45.2K',
-    increase: '22600%',
+    increase: '1200%',
     timeframe: '3 weeks',
     testimonial: 'Guided shot system senang sangat. Customer reaction video I buat - 45K views! Sold out sambal for 1 month straight.',
     metric: 'Revenue up 400%',
@@ -46,9 +46,9 @@ const successStories = [
     name: 'Baju Raya Ayu',
     business: 'Boutique in Ipoh',
     image: '👗',
-    beforeViews: '120',
+    beforeViews: '1.8K',
     afterViews: '8.7K',
-    increase: '7250%',
+    increase: '380%',
     timeframe: '10 days',
     testimonial: 'AI hook suggestions memang power. Posting time pun dia suggest. Now I get DMs everyday asking for stock.',
     metric: 'Orders up 180%',
@@ -164,15 +164,15 @@ export function SuccessStoriesScreen() {
               <div className="p-5">
                 {/* Before/After Stats */}
                 <div className="grid grid-cols-2 gap-3 mb-4">
-                  <div className="text-center p-4 bg-[#EB4D87] bg-opacity-10 rounded-xl border-2 border-[#EB4D87] border-opacity-20 hover:bg-opacity-20 transition-colors">
-                    <p className="text-xs text-[#7D7D7D] mb-1">Before</p>
-                    <p className="text-2xl text-[#EB4D87] mb-1 font-medium">{story.beforeViews}</p>
-                    <p className="text-xs text-[#7D7D7D]">avg views</p>
+                  <div className="text-center p-4 bg-[#EB4D87] rounded-xl shadow-sm">
+                    <p className="text-xs text-white text-opacity-90 mb-1">Before</p>
+                    <p className="text-2xl text-white mb-1 font-bold">{story.beforeViews}</p>
+                    <p className="text-xs text-white text-opacity-90">avg views</p>
                   </div>
-                  <div className="text-center p-4 bg-[#2D9CDB] bg-opacity-10 rounded-xl border-2 border-[#2D9CDB] border-opacity-20 hover:bg-opacity-20 transition-colors">
-                    <p className="text-xs text-[#7D7D7D] mb-1">After</p>
-                    <p className="text-2xl text-[#2D9CDB] mb-1 font-medium">{story.afterViews}</p>
-                    <p className="text-xs text-[#7D7D7D]">avg views</p>
+                  <div className="text-center p-4 bg-[#2D9CDB] rounded-xl shadow-sm">
+                    <p className="text-xs text-white text-opacity-90 mb-1">After</p>
+                    <p className="text-2xl text-white mb-1 font-bold">{story.afterViews}</p>
+                    <p className="text-xs text-white text-opacity-90">avg views</p>
                   </div>
                 </div>
 

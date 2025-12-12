@@ -135,6 +135,7 @@
     --text-9xl--line-height: 1;
     --font-weight-normal: 400;
     --font-weight-medium: 500;
+    --font-weight-bold: 700;
     --tracking-tight: -.025em;
     --tracking-wider: .05em;
     --radius-2xl: 1rem;
@@ -1061,10 +1062,6 @@
     border-color: #e8e8e8;
   }
 
-  .border-\[\#EB4D87\] {
-    border-color: #eb4d87;
-  }
-
   .border-\[\#FF4FD1\] {
     border-color: #ff4fd1;
   }
@@ -1640,6 +1637,11 @@
   .leading-none {
     --tw-leading: 1;
     line-height: 1;
+  }
+
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
   }
 
   .font-medium {
