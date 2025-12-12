@@ -1,4 +1,4 @@
-import { Trophy, TrendingUp, Users, DollarSign, Star, Quote, ArrowUpRight } from 'lucide-react';
+import { Trophy, TrendingUp, Users, DollarSign, Star, Quote, ArrowUpRight, ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 const successStories = [

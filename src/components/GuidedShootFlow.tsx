@@ -93,7 +93,7 @@ export function GuidedShootFlow({ template, onBack, onComplete }: GuidedShootFlo
       <div className="bg-black bg-opacity-80 backdrop-blur-sm p-4 relative z-20">
         <div className="max-w-lg mx-auto">
           <div className="flex items-center justify-between mb-3">
-            <button onClick={handleBack} className="p-2 hover:bg-white hover:bg-opacity-10 rounded-lg transition-colors">
+            <button onClick={handleBack} className="p-2 hover:bg-white/10 rounded-lg transition-colors">
               <ArrowLeft className="w-6 h-6" strokeWidth={2} />
             </button>
             <div className="text-sm text-white">
@@ -101,7 +101,7 @@ export function GuidedShootFlow({ template, onBack, onComplete }: GuidedShootFlo
             </div>
             <button 
               onClick={() => setShowPermissionError(true)}
-              className="p-2 hover:bg-white hover:bg-opacity-10 rounded-lg transition-colors"
+              className="p-2 hover:bg-white/10 rounded-lg transition-colors"
             >
               <Camera className="w-6 h-6" strokeWidth={2} />
             </button>
@@ -191,7 +191,7 @@ export function GuidedShootFlow({ template, onBack, onComplete }: GuidedShootFlo
               <div className="bg-gradient-to-r from-[#A55BFF] to-[#FF4FD1] px-3 py-1 rounded-full text-sm">
                 {currentShot.duration} seconds
               </div>
-              <div className="bg-white bg-opacity-10 px-3 py-1 rounded-full text-sm">
+              <div className="bg-white/10 px-3 py-1 rounded-full text-sm">
                 {currentShot.cameraAngle}
               </div>
             </div>
@@ -223,7 +223,7 @@ export function GuidedShootFlow({ template, onBack, onComplete }: GuidedShootFlo
               <button
                 onClick={handleSkip}
                 disabled={isRecording || countdown !== null}
-                className="w-full py-3 rounded-xl bg-white bg-opacity-10 hover:bg-opacity-20 transition-all text-sm disabled:opacity-50"
+                className="w-full py-3 rounded-xl bg-white/10 hover:bg-white/20 transition-all text-sm disabled:opacity-50"
               >
                 Skip This Shot
               </button>
@@ -238,7 +238,7 @@ export function GuidedShootFlow({ template, onBack, onComplete }: GuidedShootFlo
               <div className="grid grid-cols-2 gap-3">
                 <button
                   onClick={handleRetake}
-                  className="py-3 rounded-xl bg-white bg-opacity-10 hover:bg-opacity-20 transition-all flex items-center justify-center gap-2"
+                  className="py-3 rounded-xl bg-white/10 hover:bg-white/20 transition-all flex items-center justify-center gap-2"
                 >
                   <RotateCcw className="w-4 h-4" strokeWidth={2} />
                   Retake
