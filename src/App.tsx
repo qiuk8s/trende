@@ -118,12 +118,12 @@ export default function App() {
                 <button
                   key={tab.id}
                   onClick={() => setCurrentScreen(tab.id)}
-                  className={`flex flex-col items-center gap-1 transition-colors ${
-                    isActive ? 'text-[#A55BFF]' : 'text-[#7D7D7D]'
+                  className={`flex flex-col items-center gap-1 transition-all hover:scale-110 ${
+                    isActive ? 'text-[#A55BFF]' : 'text-[#7D7D7D] hover:text-[#A55BFF]'
                   }`}
                 >
                   <Icon className="w-6 h-6" strokeWidth={isActive ? 2.5 : 2} />
-                  <span className="text-xs">{tab.label}</span>
+                  <span className={`text-xs ${isActive ? 'font-medium' : ''}`}>{tab.label}</span>
                 </button>
               );
             })}

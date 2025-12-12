@@ -1,6 +1,6 @@
 import { BarChart3, TrendingUp, Eye, Heart, MessageCircle, Share2, Target, AlertCircle, Lightbulb, Zap } from 'lucide-react';
 import { EmptyState } from './EmptyState';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface AnalyticsScreenProps {
   goal?: string;
@@ -87,6 +87,67 @@ const insights = [
 
 export function AnalyticsScreen({ goal }: AnalyticsScreenProps) {
   const [hasVideos] = useState(true); // Change to false to show empty state
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [animatedStats, setAnimatedStats] = useState({
+    videosPosted: 0,
+    totalViews: 0,
+    totalEngagement: 0,
+    avgWatchTime: 0,
+  });
+  const [animatedPrediction, setAnimatedPrediction] = useState({
+    views: 0,
+    likes: 0,
+    successRate: 0,
+  });
+
+  // Animate weekly stats on mount
+  useEffect(() => {
+    const animateValue = (key: keyof typeof weeklyStats, target: number, duration: number) => {
+      const steps = 50;
+      const increment = target / steps;
+      const stepDuration = duration / steps;
+      
+      let currentValue = 0;
+      const interval = setInterval(() => {
+        currentValue += increment;
+        if (currentValue >= target) {
+          currentValue = target;
+          clearInterval(interval);
+        }
+        setAnimatedStats(prev => ({ ...prev, [key]: Math.round(currentValue) }));
+      }, stepDuration);
+    };
+
+    animateValue('videosPosted', weeklyStats.videosPosted, 1000);
+    animateValue('totalViews', weeklyStats.totalViews, 1500);
+    animateValue('totalEngagement', weeklyStats.totalEngagement, 1500);
+    animateValue('avgWatchTime', weeklyStats.avgWatchTime, 1200);
+  }, []);
+
+  // Animate prediction values
+  useEffect(() => {
+    const targets = { views: 4.2, likes: 850, successRate: 85 };
+    
+    const animateValue = (key: keyof typeof targets, target: number, duration: number) => {
+      const steps = 50;
+      const increment = target / steps;
+      const stepDuration = duration / steps;
+      
+      let currentValue = 0;
+      const interval = setInterval(() => {
+        currentValue += increment;
+        if (currentValue >= target) {
+          currentValue = target;
+          clearInterval(interval);
+        }
+        setAnimatedPrediction(prev => ({ ...prev, [key]: currentValue }));
+      }, stepDuration);
+    };
+
+    animateValue('views', targets.views, 1500);
+    animateValue('likes', targets.likes, 1500);
+    animateValue('successRate', targets.successRate, 1200);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#FFF4FF] via-[#FFEFE5] to-[#FFF6F0]">
@@ -114,25 +175,25 @@ export function AnalyticsScreen({ goal }: AnalyticsScreenProps) {
           <>
             {/* Weekly Summary Metrics */}
             <div className="grid grid-cols-2 gap-4 mb-8">
-              <div className="bg-white rounded-2xl p-4 shadow-md">
+              <div className="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition-all cursor-pointer">
                 <p className="text-sm text-[#7D7D7D] mb-2">Videos Posted</p>
-                <p className="text-3xl text-[#A55BFF] mb-2">{weeklyStats.videosPosted}</p>
-                <p className="text-xs text-[#2D9CDB]">+2 from last week</p>
+                <p className="text-3xl text-[#A55BFF] mb-2 font-medium">{animatedStats.videosPosted}</p>
+                <p className="text-xs text-[#2D9CDB] font-medium">+2 from last week</p>
               </div>
-              <div className="bg-white rounded-2xl p-4 shadow-md">
+              <div className="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition-all cursor-pointer">
                 <p className="text-sm text-[#7D7D7D] mb-2">Total Views</p>
-                <p className="text-3xl text-[#A55BFF] mb-2">{weeklyStats.totalViews.toLocaleString()}</p>
-                <p className="text-xs text-[#2D9CDB]">+127% from last week</p>
+                <p className="text-3xl text-[#A55BFF] mb-2 font-medium">{animatedStats.totalViews.toLocaleString()}</p>
+                <p className="text-xs text-[#2D9CDB] font-medium">+127% from last week</p>
               </div>
-              <div className="bg-white rounded-2xl p-4 shadow-md">
+              <div className="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition-all cursor-pointer">
                 <p className="text-sm text-[#7D7D7D] mb-2">Total Engagement</p>
-                <p className="text-3xl text-[#A55BFF] mb-2">{weeklyStats.totalEngagement.toLocaleString()}</p>
-                <p className="text-xs text-[#2D9CDB]">+89% from last week</p>
+                <p className="text-3xl text-[#A55BFF] mb-2 font-medium">{animatedStats.totalEngagement.toLocaleString()}</p>
+                <p className="text-xs text-[#2D9CDB] font-medium">+89% from last week</p>
               </div>
-              <div className="bg-white rounded-2xl p-4 shadow-md">
+              <div className="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition-all cursor-pointer">
                 <p className="text-sm text-[#7D7D7D] mb-2">Avg Watch Time</p>
-                <p className="text-3xl text-[#A55BFF] mb-2">{weeklyStats.avgWatchTime}%</p>
-                <p className="text-xs text-[#2D9CDB]">+12% from last week</p>
+                <p className="text-3xl text-[#A55BFF] mb-2 font-medium">{animatedStats.avgWatchTime}%</p>
+                <p className="text-xs text-[#2D9CDB] font-medium">+12% from last week</p>
               </div>
             </div>
 
@@ -148,7 +209,7 @@ export function AnalyticsScreen({ goal }: AnalyticsScreenProps) {
                   return (
                     <div 
                       key={index}
-                      className="bg-white rounded-2xl p-4 shadow-md"
+                      className="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl hover:scale-[1.02] transition-all cursor-pointer"
                     >
                       <div className="flex items-start gap-3">
                         <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 bg-gradient-to-r ${insight.color}`}>
@@ -172,13 +233,19 @@ export function AnalyticsScreen({ goal }: AnalyticsScreenProps) {
               <h2 className="text-[#3A3A3A] mb-4">Video Performance</h2>
               <div className="space-y-3">
                 {videoPerformance.map((video) => (
-                  <div key={video.id} className="bg-white rounded-2xl p-4 shadow-md">
+                  <div 
+                    key={video.id} 
+                    onClick={() => setSelectedVideo(selectedVideo === video.id ? null : video.id)}
+                    className={`bg-white rounded-2xl p-4 shadow-md hover:shadow-xl hover:scale-[1.02] transition-all cursor-pointer ${
+                      selectedVideo === video.id ? 'ring-2 ring-[#A55BFF] scale-[1.02]' : ''
+                    }`}
+                  >
                     <div className="flex items-start justify-between mb-3">
                       <div className="flex-1">
                         <h3 className="text-[#3A3A3A] text-sm mb-1">{video.title}</h3>
                         <p className="text-xs text-[#7D7D7D]">{video.template} template</p>
                       </div>
-                      <div className={`text-xs px-3 py-1 rounded-full flex-shrink-0 ml-3 ${
+                      <div className={`text-xs px-3 py-1 rounded-full flex-shrink-0 ml-3 font-medium ${
                         video.score >= 90 ? 'bg-[#2D9CDB] bg-opacity-10 text-[#2D9CDB]' :
                         video.score >= 70 ? 'bg-[#9B51E0] bg-opacity-10 text-[#9B51E0]' :
                         video.score >= 60 ? 'bg-[#FF7A00] bg-opacity-10 text-[#FF7A00]' :
@@ -191,7 +258,7 @@ export function AnalyticsScreen({ goal }: AnalyticsScreenProps) {
                     {/* Score Bar */}
                     <div className="bg-[#E8E8E8] rounded-full h-2 mb-4 overflow-hidden">
                       <div 
-                        className={`h-full transition-all ${
+                        className={`h-full transition-all duration-1000 ease-out ${
                           video.score >= 90 ? 'bg-gradient-to-r from-[#2D9CDB] to-[#56CCF2]' :
                           video.score >= 70 ? 'bg-gradient-to-r from-[#9B51E0] to-[#BB78F0]' :
                           video.score >= 60 ? 'bg-gradient-to-r from-[#FF7A00] to-[#FF9A3E]' :
@@ -203,31 +270,42 @@ export function AnalyticsScreen({ goal }: AnalyticsScreenProps) {
 
                     {/* Stats Grid */}
                     <div className="grid grid-cols-4 gap-2 text-center">
-                      <div>
-                        <div className="flex items-center justify-center gap-1 text-[#7D7D7D] mb-1">
-                          <Eye className="w-3 h-3" strokeWidth={2} />
+                      <div className="hover:bg-[#FFF7FB] p-2 rounded-lg transition-colors">
+                        <div className="flex items-center justify-center gap-1 text-[#A55BFF] mb-1">
+                          <Eye className="w-4 h-4" strokeWidth={2} />
                         </div>
-                        <p className="text-xs text-[#3A3A3A]">{video.views.toLocaleString()}</p>
+                        <p className="text-xs text-[#3A3A3A] font-medium">{video.views.toLocaleString()}</p>
                       </div>
-                      <div>
-                        <div className="flex items-center justify-center gap-1 text-[#7D7D7D] mb-1">
-                          <Heart className="w-3 h-3" strokeWidth={2} />
+                      <div className="hover:bg-[#FFF7FB] p-2 rounded-lg transition-colors">
+                        <div className="flex items-center justify-center gap-1 text-[#A55BFF] mb-1">
+                          <Heart className="w-4 h-4" strokeWidth={2} />
                         </div>
-                        <p className="text-xs text-[#3A3A3A]">{video.likes}</p>
+                        <p className="text-xs text-[#3A3A3A] font-medium">{video.likes}</p>
                       </div>
-                      <div>
-                        <div className="flex items-center justify-center gap-1 text-[#7D7D7D] mb-1">
-                          <MessageCircle className="w-3 h-3" strokeWidth={2} />
+                      <div className="hover:bg-[#FFF7FB] p-2 rounded-lg transition-colors">
+                        <div className="flex items-center justify-center gap-1 text-[#A55BFF] mb-1">
+                          <MessageCircle className="w-4 h-4" strokeWidth={2} />
                         </div>
-                        <p className="text-xs text-[#3A3A3A]">{video.comments}</p>
+                        <p className="text-xs text-[#3A3A3A] font-medium">{video.comments}</p>
                       </div>
-                      <div>
-                        <div className="flex items-center justify-center gap-1 text-[#7D7D7D] mb-1">
-                          <Share2 className="w-3 h-3" strokeWidth={2} />
+                      <div className="hover:bg-[#FFF7FB] p-2 rounded-lg transition-colors">
+                        <div className="flex items-center justify-center gap-1 text-[#A55BFF] mb-1">
+                          <Share2 className="w-4 h-4" strokeWidth={2} />
                         </div>
-                        <p className="text-xs text-[#3A3A3A]">{video.shares}</p>
+                        <p className="text-xs text-[#3A3A3A] font-medium">{video.shares}</p>
                       </div>
                     </div>
+
+                    {selectedVideo === video.id && (
+                      <div className="mt-4 pt-4 border-t border-[#E8E8E8] grid grid-cols-2 gap-2">
+                        <button className="bg-gradient-to-r from-[#A55BFF] to-[#FF4FD1] text-white py-2 rounded-xl text-xs hover:shadow-lg transition-all">
+                          View Details
+                        </button>
+                        <button className="bg-[#FFF7FB] text-[#A55BFF] py-2 rounded-xl text-xs hover:bg-[#FFE5F8] transition-all font-medium">
+                          Recreate This
+                        </button>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -242,23 +320,23 @@ export function AnalyticsScreen({ goal }: AnalyticsScreenProps) {
               <p className="text-sm text-white text-opacity-90 mb-4">
                 Based on your performance, if you post a &quot;Food Pouring Reel&quot; tonight at 7 PM:
               </p>
-              <div className="bg-white bg-opacity-20 rounded-xl p-4 mb-4">
+              <div className="bg-white/20 rounded-xl p-4 mb-4">
                 <div className="grid grid-cols-3 gap-3 text-center">
                   <div>
-                    <p className="text-2xl text-white mb-1">4.2K</p>
+                    <p className="text-2xl text-white mb-1 font-medium">{animatedPrediction.views.toFixed(1)}K</p>
                     <p className="text-xs text-white text-opacity-80">Est. Views</p>
                   </div>
                   <div>
-                    <p className="text-2xl text-white mb-1">850+</p>
+                    <p className="text-2xl text-white mb-1 font-medium">{Math.round(animatedPrediction.likes)}+</p>
                     <p className="text-xs text-white text-opacity-80">Est. Likes</p>
                   </div>
                   <div>
-                    <p className="text-2xl text-white mb-1">85%</p>
+                    <p className="text-2xl text-white mb-1 font-medium">{Math.round(animatedPrediction.successRate)}%</p>
                     <p className="text-xs text-white text-opacity-80">Success Rate</p>
                   </div>
                 </div>
               </div>
-              <button className="w-full bg-white text-[#A55BFF] py-3 rounded-xl hover:bg-opacity-90 transition-all">
+              <button className="w-full bg-white text-[#A55BFF] py-3 rounded-xl hover:bg-opacity-90 hover:shadow-lg transition-all font-medium">
                 Create This Video Now
               </button>
             </div>

@@ -41,24 +41,24 @@ export function HomeScreen({ onCreateVideo, industry }: HomeScreenProps) {
         {/* Main CTA */}
         <button
           onClick={onCreateVideo}
-          className="w-full bg-gradient-to-r from-[#A55BFF] to-[#FF4FD1] text-white py-5 rounded-2xl shadow-xl hover:shadow-2xl transition-all mb-8 flex items-center justify-center gap-3"
+          className="w-full bg-gradient-to-r from-[#A55BFF] to-[#FF4FD1] text-white py-5 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all mb-8 flex items-center justify-center gap-3"
         >
           <Video className="w-6 h-6" strokeWidth={2} />
-          <span className="text-lg">Create Video</span>
+          <span className="text-lg font-medium">Create Video</span>
         </button>
 
         {/* Quick Stats */}
         <div className="grid grid-cols-3 gap-4 mb-8">
-          <div className="bg-white rounded-2xl p-4 text-center shadow-md">
-            <p className="text-2xl text-[#A55BFF] mb-1">2,847</p>
+          <div className="bg-white rounded-2xl p-4 text-center shadow-md hover:shadow-xl hover:scale-[1.05] transition-all cursor-pointer">
+            <p className="text-2xl text-[#A55BFF] mb-1 font-medium">2,847</p>
             <p className="text-xs text-[#7D7D7D]">Videos Created</p>
           </div>
-          <div className="bg-white rounded-2xl p-4 text-center shadow-md">
-            <p className="text-2xl text-[#2D9CDB] mb-1">94%</p>
+          <div className="bg-white rounded-2xl p-4 text-center shadow-md hover:shadow-xl hover:scale-[1.05] transition-all cursor-pointer">
+            <p className="text-2xl text-[#2D9CDB] mb-1 font-medium">94%</p>
             <p className="text-xs text-[#7D7D7D]">Success Rate</p>
           </div>
-          <div className="bg-white rounded-2xl p-4 text-center shadow-md">
-            <p className="text-2xl text-[#FF7A00] mb-1">3.2x</p>
+          <div className="bg-white rounded-2xl p-4 text-center shadow-md hover:shadow-xl hover:scale-[1.05] transition-all cursor-pointer">
+            <p className="text-2xl text-[#FF7A00] mb-1 font-medium">3.2x</p>
             <p className="text-xs text-[#7D7D7D]">Avg. Engagement</p>
           </div>
         </div>
@@ -76,17 +76,17 @@ export function HomeScreen({ onCreateVideo, industry }: HomeScreenProps) {
                 <div
                   key={template.id}
                   onClick={onCreateVideo}
-                  className="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition-all cursor-pointer relative overflow-hidden"
+                  className="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl hover:scale-[1.05] transition-all cursor-pointer relative overflow-hidden group"
                 >
                   {template.trending && (
                     <div className="absolute top-3 right-3">
-                      <div className="bg-gradient-to-r from-[#FF7A00] to-[#FF9A3E] text-white text-xs px-2 py-1 rounded-full flex items-center gap-1">
+                      <div className="bg-gradient-to-r from-[#FF7A00] to-[#FF9A3E] text-white text-xs px-2 py-1 rounded-full flex items-center gap-1 animate-pulse">
                         <Star className="w-3 h-3 fill-current" strokeWidth={0} />
                         Hot
                       </div>
                     </div>
                   )}
-                  <div className="bg-gradient-to-br from-[#A55BFF] to-[#FF4FD1] bg-opacity-10 w-14 h-14 rounded-2xl flex items-center justify-center mb-3">
+                  <div className="bg-[#A55BFF]/10 w-14 h-14 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                     <Icon className="w-7 h-7 text-[#A55BFF]" strokeWidth={2} />
                   </div>
                   <p className="text-[#3A3A3A] text-sm mb-1">{template.name}</p>
@@ -105,9 +105,9 @@ export function HomeScreen({ onCreateVideo, industry }: HomeScreenProps) {
               <div
                 key={category.id}
                 onClick={onCreateVideo}
-                className={`bg-gradient-to-r ${category.gradient} text-white rounded-2xl p-5 cursor-pointer hover:shadow-xl transition-all shadow-md`}
+                className={`bg-gradient-to-r ${category.gradient} text-white rounded-2xl p-5 cursor-pointer hover:shadow-xl hover:scale-[1.05] transition-all shadow-md`}
               >
-                <p className="text-lg mb-1">{category.name}</p>
+                <p className="text-lg mb-1 font-medium">{category.name}</p>
                 <p className="text-sm opacity-90">{category.count} templates</p>
               </div>
             ))}
@@ -115,7 +115,7 @@ export function HomeScreen({ onCreateVideo, industry }: HomeScreenProps) {
         </div>
 
         {/* Today's Tip */}
-        <div className="bg-white rounded-2xl p-5 shadow-md">
+        <div className="bg-white rounded-2xl p-5 shadow-md hover:shadow-xl transition-shadow">
           <h3 className="text-[#3A3A3A] mb-3 flex items-center gap-2">
             <Lightbulb className="w-5 h-5 text-[#FF7A00]" strokeWidth={2} />
             Today&apos;s Tip
@@ -123,7 +123,7 @@ export function HomeScreen({ onCreateVideo, industry }: HomeScreenProps) {
           <p className="text-[#7D7D7D] text-sm mb-2">
             Videos with faces in the first 3 seconds get 67% more engagement!
           </p>
-          <p className="text-[#A55BFF] text-sm">
+          <p className="text-[#A55BFF] text-sm font-medium">
             Try: &quot;Food Pouring Reel&quot; or &quot;Daily Special Showcase&quot;
           </p>
         </div>

@@ -80,17 +80,24 @@ export function AutoEditScreen({ template, onBack, onComplete }: AutoEditScreenP
             <p className="text-center text-purple-200 text-sm mb-8">{editingProgress}% Complete</p>
 
             {/* What We're Doing */}
-            <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6">
-              <h3 className="text-white mb-3 flex items-center gap-2">
-                <Sparkles className="w-5 h-5" />
+            <div className="bg-black/30 backdrop-blur-md rounded-xl p-6 border border-white/10">
+              <h3 className="text-white mb-4 flex items-center gap-2 font-medium">
+                <Sparkles className="w-5 h-5 text-purple-300" />
                 What AI is doing:
               </h3>
-              <ul className="space-y-2 text-sm text-purple-100">
+              <ul className="space-y-3 text-sm">
                 {editingSteps.map((step, index) => (
-                  <li key={index} className={`flex items-center gap-2 ${
-                    editingProgress >= step.progress ? 'text-white' : 'text-purple-300 opacity-50'
+                  <li key={index} className={`flex items-center gap-3 transition-colors ${
+                    editingProgress >= step.progress ? 'text-white font-medium' : 'text-purple-200'
                   }`}>
-                    {editingProgress >= step.progress ? '✓' : '○'} {step.label}
+                    <div className={`w-5 h-5 rounded-full flex items-center justify-center border ${
+                      editingProgress >= step.progress 
+                        ? 'bg-green-500 border-green-500 text-white' 
+                        : 'border-purple-300/50 text-transparent'
+                    }`}>
+                      {editingProgress >= step.progress && <span className="text-xs">✓</span>}
+                    </div>
+                     {step.label}
                   </li>
                 ))}
               </ul>

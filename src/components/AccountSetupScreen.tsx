@@ -74,11 +74,16 @@ export function AccountSetupScreen({ onComplete }: AccountSetupScreenProps) {
                     >
                       <div className={`w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 ${
                         selectedIndustry === industry.id
-                          ? 'bg-white bg-opacity-20'
+                          ? 'bg-white shadow-sm'
                           : `bg-gradient-to-r ${industry.gradient}`
                       }`}>
                         <Icon className={`w-6 h-6 ${
-                          selectedIndustry === industry.id ? 'text-white' : 'text-white'
+                          selectedIndustry === industry.id 
+                            ? industry.id === 'fnb' ? 'text-[#FF7A00]' :
+                              industry.id === 'cleaning' ? 'text-[#2D9CDB]' :
+                              industry.id === 'retail' ? 'text-[#9B51E0]' :
+                              'text-[#FF4FD1]'
+                            : 'text-white'
                         }`} />
                       </div>
                       <p className={`text-center ${
@@ -113,10 +118,12 @@ export function AccountSetupScreen({ onComplete }: AccountSetupScreenProps) {
                     >
                       <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${
                         selectedGoal === goal.id
-                          ? 'bg-white bg-opacity-20'
+                          ? 'bg-white shadow-sm'
                           : 'bg-gradient-to-r from-[#A55BFF] to-[#FF4FD1]'
                       }`}>
-                        <Icon className="w-6 h-6 text-white" />
+                        <Icon className={`w-6 h-6 ${
+                          selectedGoal === goal.id ? 'text-[#A55BFF]' : 'text-white'
+                        }`} />
                       </div>
                       <div className="text-left flex-1">
                         <p className={`mb-1 ${

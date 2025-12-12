@@ -195,10 +195,13 @@ export function GuidedShootFlow({ template, onBack, onComplete }: GuidedShootFlo
                 {currentShot.cameraAngle}
               </div>
             </div>
-            <h2 className="text-white mb-2">{currentShot.instruction}</h2>
-            <p className="text-gray-300 text-sm mb-2">
-              💡 {currentShot.tips}
-            </p>
+            <h2 className="text-white text-lg font-medium mb-3">{currentShot.instruction}</h2>
+            <div className="bg-white/10 rounded-xl p-4 border border-white/10">
+              <p className="text-yellow-300 font-medium text-sm flex gap-2">
+                <span className="text-lg">💡</span>
+                {currentShot.tips}
+              </p>
+            </div>
           </div>
 
           {/* Action Buttons */}
