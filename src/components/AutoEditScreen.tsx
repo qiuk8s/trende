@@ -95,7 +95,7 @@ export function AutoEditScreen({ template, onBack, onComplete }: AutoEditScreenP
                         ? 'bg-green-500 border-green-500 text-white' 
                         : 'border-purple-300/50 text-transparent'
                     }`}>
-                      {editingProgress >= step.progress && <span className="text-xs">✓</span>}
+                      {editingProgress >= step.progress && <span className="text-xs">OK</span>}
                     </div>
                      {step.label}
                   </li>
@@ -112,7 +112,7 @@ export function AutoEditScreen({ template, onBack, onComplete }: AutoEditScreenP
               </div>
               <h2 className="text-white mb-2">Video Ready!</h2>
               <p className="text-purple-200 text-center">
-                Your video has been auto-edited with AI magic ✨
+                Your video has been auto-edited with AI magic
               </p>
             </div>
 
@@ -120,7 +120,7 @@ export function AutoEditScreen({ template, onBack, onComplete }: AutoEditScreenP
             <div className="bg-black rounded-xl aspect-[9/16] max-w-xs mx-auto mb-6 flex items-center justify-center">
               <div className="text-center">
                 <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-2">
-                  ▶
+                  Play
                 </div>
                 <p className="text-sm text-gray-400">Preview</p>
               </div>

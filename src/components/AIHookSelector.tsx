@@ -19,17 +19,17 @@ interface Hook {
 }
 
 const hooks: Hook[] = [
-  { text: 'Wait for it... 😳', type: 'curiosity', engagement: 92 },
+  { text: 'Wait for it...', type: 'curiosity', engagement: 92 },
   { text: 'POV: You just discovered...', type: 'curiosity', engagement: 88 },
-  { text: 'How is this even possible? 🤯', type: 'question', engagement: 85 },
+  { text: 'How is this even possible?', type: 'question', engagement: 85 },
   { text: 'Most people don\'t know this...', type: 'value', engagement: 90 },
   { text: 'This is why we wake up at 4AM', type: 'bold', engagement: 87 },
 ];
 
 const captions = [
-  'Made fresh every morning at our store in Shah Alam 🌅 DM to order!',
-  'Behind the scenes of our daily prep ✨ Tag someone who needs to try this!',
-  'This is what dedication looks like 💪 Visit us today!',
+  'Made fresh every morning at our store in Shah Alam. DM to order!',
+  'Behind the scenes of our daily prep. Tag someone who needs to try this!',
+  'This is what dedication looks like. Visit us today!',
 ];
 
 const hashtags = [
@@ -111,7 +111,7 @@ export function AIHookSelector({ template, onBack, onComplete }: AIHookSelectorP
             <div className="text-lg opacity-90 mb-1">/ 100</div>
           </div>
           <p className="text-sm text-green-100 mt-2">
-            High engagement potential! ✨ Strong hook + clear CTA
+            High engagement potential! Strong hook + clear CTA
           </p>
         </div>
 
@@ -235,19 +235,19 @@ export function AIHookSelector({ template, onBack, onComplete }: AIHookSelectorP
           </h3>
           <ul className="space-y-2 text-sm text-gray-700">
             <li className="flex items-start gap-2">
-              <span className="text-green-600">✓</span>
+              <span className="text-green-600">-</span>
               <span>Strong curiosity hook - will reduce scroll-past rate</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-green-600">✓</span>
+              <span className="text-green-600">-</span>
               <span>Clear call-to-action in caption</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-orange-600">⚠</span>
+              <span className="text-orange-600">!</span>
               <span>Best posting time: 7-9 PM for Malaysian audience</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="text-purple-600">💡</span>
+              <span className="text-purple-600">Tip:</span>
               <span>Add location tag for local discovery</span>
             </li>
           </ul>

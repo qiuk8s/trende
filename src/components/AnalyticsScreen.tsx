@@ -235,7 +235,7 @@ export function AnalyticsScreen({ goal }: AnalyticsScreenProps) {
                         <div className="flex-1">
                           <p className="text-[#3A3A3A] text-sm mb-2">{insight.message}</p>
                           <p className="text-xs text-[#7D7D7D]">
-                            💡 {insight.action}
+                            Tip: {insight.action}
                           </p>
                         </div>
                       </div>

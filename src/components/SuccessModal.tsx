@@ -99,7 +99,7 @@ export function ErrorModal({
         {/* Error icon */}
         <div className="mb-6">
           <div className="w-24 h-24 bg-gradient-to-r from-[#EB4D87] to-[#FF4FD1] bg-opacity-10 rounded-full flex items-center justify-center mx-auto">
-            <div className="text-5xl">⚠️</div>
+            <div className="text-5xl">Warning</div>
           </div>
         </div>
 

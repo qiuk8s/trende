@@ -6,7 +6,7 @@ const successStories = [
     id: '1',
     name: 'Kafe Kita',
     business: 'Cafe in Shah Alam',
-    image: '☕',
+    image: 'COF',
     beforeViews: '1.2K',
     afterViews: '12.5K',
     increase: '940%',
@@ -19,7 +19,7 @@ const successStories = [
     id: '2',
     name: 'Aunty Lily Cleaning Services',
     business: 'House Cleaning in KL',
-    image: '🧹',
+    image: 'CLN',
     beforeViews: '2.5K',
     afterViews: '24.8K',
     increase: '890%',
@@ -32,7 +32,7 @@ const successStories = [
     id: '3',
     name: 'Sambal Sedap',
     business: 'Homemade Sambal in Penang',
-    image: '🌶️',
+    image: 'HOT',
     beforeViews: '3.5K',
     afterViews: '45.2K',
     increase: '1200%',
@@ -45,7 +45,7 @@ const successStories = [
     id: '4',
     name: 'Baju Raya Ayu',
     business: 'Boutique in Ipoh',
-    image: '👗',
+    image: 'FIT',
     beforeViews: '1.8K',
     afterViews: '8.7K',
     increase: '380%',
@@ -188,7 +188,7 @@ export function SuccessStoriesScreen() {
                 <div className={`bg-gradient-to-r ${story.gradient} bg-opacity-10 border-2 border-opacity-30 rounded-xl p-3 text-center hover:bg-opacity-20 transition-colors`}
                      style={{ borderColor: 'currentColor' }}>
                   <p className="text-[#3A3A3A] text-sm">
-                    🎯 <strong>{story.metric}</strong>
+                    Goal: <strong>{story.metric}</strong>
                   </p>
                 </div>
 
@@ -222,23 +222,23 @@ export function SuccessStoriesScreen() {
           <h3 className="text-[#3A3A3A] mb-4">What They All Did:</h3>
           <ul className="space-y-3 text-sm text-[#7D7D7D]">
             <li className="flex items-start gap-3 hover:bg-[#FFF7FB] -mx-3 px-3 py-2 rounded-xl transition-colors cursor-pointer">
-              <span className="text-[#2D9CDB] text-lg flex-shrink-0">✓</span>
+              <span className="text-[#2D9CDB] text-lg flex-shrink-0">-</span>
               <span>Posted consistently (3-5 videos per week)</span>
             </li>
             <li className="flex items-start gap-3 hover:bg-[#FFF7FB] -mx-3 px-3 py-2 rounded-xl transition-colors cursor-pointer">
-              <span className="text-[#2D9CDB] text-lg flex-shrink-0">✓</span>
+              <span className="text-[#2D9CDB] text-lg flex-shrink-0">-</span>
               <span>Used AI-suggested hooks and captions</span>
             </li>
             <li className="flex items-start gap-3 hover:bg-[#FFF7FB] -mx-3 px-3 py-2 rounded-xl transition-colors cursor-pointer">
-              <span className="text-[#2D9CDB] text-lg flex-shrink-0">✓</span>
+              <span className="text-[#2D9CDB] text-lg flex-shrink-0">-</span>
               <span>Followed the guided shot system exactly</span>
             </li>
             <li className="flex items-start gap-3 hover:bg-[#FFF7FB] -mx-3 px-3 py-2 rounded-xl transition-colors cursor-pointer">
-              <span className="text-[#2D9CDB] text-lg flex-shrink-0">✓</span>
+              <span className="text-[#2D9CDB] text-lg flex-shrink-0">-</span>
               <span>Posted at recommended times (7-9 PM)</span>
             </li>
             <li className="flex items-start gap-3 hover:bg-[#FFF7FB] -mx-3 px-3 py-2 rounded-xl transition-colors cursor-pointer">
-              <span className="text-[#2D9CDB] text-lg flex-shrink-0">✓</span>
+              <span className="text-[#2D9CDB] text-lg flex-shrink-0">-</span>
               <span>Showed real people (not just products)</span>
             </li>
           </ul>

@@ -19,7 +19,7 @@ const trendingStyles = [
   },
   { 
     id: '2', 
-    style: 'Before → After Transformation',
+    style: 'Before -> After Transformation',
     description: 'Dramatic visual change that stops scrolling',
     performance: 91,
     bestFor: 'Cleaning, Renovation',

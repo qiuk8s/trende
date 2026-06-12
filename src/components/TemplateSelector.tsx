@@ -44,7 +44,7 @@ const templates: Template[] = [
         instruction: 'Close-up of empty glass/bowl',
         duration: 2,
         tips: 'Get VERY close, fill the frame',
-        cameraAngle: 'Top-down or 45° angle'
+        cameraAngle: 'Top-down or 45 deg angle'
       },
       {
         id: 3,
@@ -376,13 +376,13 @@ export function TemplateSelector({ onSelectTemplate, onBack, industry }: Templat
               <div className="flex items-start justify-between">
                 <div>
                   <h2 className="text-gray-900 mb-1">{previewTemplate.name}</h2>
-                  <p className="text-sm text-gray-600">{previewTemplate.shots.length} shots • {previewTemplate.duration}</p>
+                  <p className="text-sm text-gray-600">{previewTemplate.shots.length} shots - {previewTemplate.duration}</p>
                 </div>
                 <button 
                   onClick={() => setPreviewTemplate(null)}
                   className="text-gray-500 hover:text-gray-700"
                 >
-                  ✕
+                  Close
                 </button>
               </div>
             </div>
@@ -400,13 +400,13 @@ export function TemplateSelector({ onSelectTemplate, onBack, industry }: Templat
                       </div>
                       <div className="flex-1">
                         <p className="text-gray-900 mb-1">{shot.instruction}</p>
-                        <p className="text-sm text-gray-600 mb-2">💡 {shot.tips}</p>
+                        <p className="text-sm text-gray-600 mb-2">Tip: {shot.tips}</p>
                         <div className="flex items-center gap-3 text-xs text-gray-500">
                           <span className="flex items-center gap-1">
                             <Clock className="w-3 h-3" />
                             {shot.duration}s
                           </span>
-                          <span>📸 {shot.cameraAngle}</span>
+                          <span>Camera: {shot.cameraAngle}</span>
                         </div>
                       </div>
                     </div>

@@ -15,7 +15,7 @@ interface Template {
 const templates: Template[] = [
   {
     id: '1',
-    title: 'Problem → Solution Reveal',
+    title: 'Problem -> Solution Reveal',
     description: 'Show a common pain point, then reveal your product as the solution',
     industry: 'All',
     duration: '15-30s',
@@ -45,7 +45,7 @@ const templates: Template[] = [
       'Caption reveals product/service',
       'CTA in comments'
     ],
-    example: 'Laundry service: "This batik kena terkena kopi... tengok!" [shows stained → pristine]'
+    example: 'Laundry service: "This batik kena terkena kopi... tengok!" [shows stained -> pristine]'
   },
   {
     id: '3',
@@ -78,7 +78,7 @@ const templates: Template[] = [
       'Show product/service naturally',
       'Let trend do the work'
     ],
-    example: 'Hardware store: Use "little miss" trend → "Little miss always has the exact screw you need"'
+    example: 'Hardware store: Use "little miss" trend -> "Little miss always has the exact screw you need"'
   },
   {
     id: '5',
@@ -95,7 +95,7 @@ const templates: Template[] = [
       'Product info overlay',
       'CTA to order'
     ],
-    example: 'Sambal business: "Customer kata not spicy enough... tengok muka dia lepas suap 😅"'
+    example: 'Sambal business: "Customer kata not spicy enough... tengok muka dia lepas suap"'
   },
   {
     id: '6',
@@ -147,7 +147,7 @@ const templates: Template[] = [
       'Reveal shocking price',
       'CTA: "Limited time!"'
     ],
-    example: 'Tudung seller: "1 shawl RM15 ❌ Get 3 for RM35! Saving RM10!"'
+    example: 'Tudung seller: "1 shawl RM15. Get 3 for RM35! Saving RM10!"'
   }
 ];
 
